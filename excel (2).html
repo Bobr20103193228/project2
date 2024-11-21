@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            #table_1{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="table_1"></table>
+          <script>
+
+            import {table,tdishiki} from './table_table.html';
+
+
+            function excel_table(){
+            var table_1 = document.getElementById('table_1');
+                let c = 0
+                for(let i = 0; i < 48; ){
+                    var idudu = 1
+                    if(document.getElementById(tdishiki[c]).getElementsByTagName('div').length>0){
+                        i++
+                        idudu++
+                        let div = document.getElementById(tdishiki[c]).getElementsByTagName('div')[c];
+                        let span = div.getElementsByTagName('span')[c];
+                        c++
+                        var spanText = span.textContent || span.innerText;
+                        var newRow = table_1.insertRow(-1); 
+                        var newCell = newRow.insertCell(0);
+                        newCell.textContent = spanText;
+                        console.log(spanText)
+
+                   }
+                }
+            }
+          </script>
+    </body>
+</html>

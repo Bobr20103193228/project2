@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Конструктор</title>
+    <style> 
+        body,head{ 
+            background-color: rgb(203, 211, 255);
+        }
+        .draggable {
+            width: 140px;
+            height: 80px;
+            background-color: rgb(88, 114, 243);
+            cursor: pointer;
+            margin: 2px; 
+            border-radius: 5px;
+            text-align: center;
+        }
+        .table {
+            width: 160px;
+            height: 90px;
+            border: 1px solid rgb(55, 85, 233);
+            position: relative;
+            overflow: auto;
+            
+        }
+        .table-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            width: 75%;
+            height: 80%;
+            border-collapse: collapse;
+            border: 1px solid rgb(55, 85, 233);
+            border-radius: 10px;
+        }
+        .td1{
+            width: 160px;
+            height: 60px;
+            border: 1px solid rgb(55, 85, 233);
+            position: relative;
+            overflow: auto;
+            border-radius: 10px;
+        }
+        
+        #textutu1{
+            width: 140px;
+            height: 35px;
+            position: relative;
+        }
+        #table1{
+            border: 1px solid rgb(55, 85, 233);
+            margin-top: 5px;
+            padding: 5px;
+            width: 300px;
+            height: 80%;
+            position: fixed;
+        }
+        input{
+            width: 300px;
+            height: 25px;
+            border: 1px solid rgb(46, 71, 194);
+        }
+        #add-draggable{
+            width: 150px;
+            height: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color:rgb(49, 76, 209);
+        }
+        #add-draggable:hover{
+            background-color: rgb(72, 102, 255);
+            box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff;
+
+        }
+        ::spelling-error {
+            background-color: orange;
+        }
+        #vibor{
+            background-color:rgb(49, 76, 209);
+        }
+        #vibor:hover{
+            background-color: rgb(72, 102, 255);
+            box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff;
+        }
+        #file:hover{
+            background-color: rgb(72, 102, 255);
+            box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Введите название предмета" id="input1" spellcheck="true">
+    <br>
+    <input type="text" placeholder="Введите номер кабинета" id="input2" spellcheck="true">
+    <br>
+    <button id="add-draggable">Добавить перетаскиваемый блок</button>
+    <input type="file" id="file">
+    <br>
+    <button id="vibor">Выбрать набор предметов</button>
+    <br>
+    <div id="table1" class="table"></div>
+
+    <table class="table-container" id="table11" align="right">
+
+        <tr>
+            <td class="td1">Урок/День</td>
+            <td class="td1">Понедельник</td>
+            <td class="td1">Вторник</td>
+            <td class="td1">Среда</td>
+            <td class="td1">Четверг</td>
+            <td class="td1">Пятница</td>
+            <td class="td1">Суббота</td>
+        </tr>
+        <tr>
+            <td class="td1">1.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">2.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">3.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">4.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">5.</td>   
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">6.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">7.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+        <tr>
+            <td class="td1">8.</td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+            <td class="table"></td>
+        </tr>
+    </table>
+
+    <script>
+        
+        document.querySelectorAll('.td1').draggable = false;  // честно ничего не помню
+        function handleDragStart(e) {
+            e.dataTransfer.setData("text/plain", e.target.id);
+            e.dataTransfer.effectAllowed = 'copy'; 
+        }
+
+        function handleDragOver(e) {
+            e.dataTransfer.dropEffect = 'copy';
+            e.preventDefault();
+        }
+
+        function handleDrop(e) { //механика отпускание блока в ячейку путём создания клона
+            e.preventDefault();
+            const data = e.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            var clone1 = draggedElement.cloneNode(true);
+            clone1.textContent = draggedElement.textContent;
+            clone1.addEventListener("dragstart", handleDragStart);
+            clone1.classList.add('clone123');
+            clone1.id = draggedElement.id + '_clone' + (document.querySelectorAll('.clone123').length + 1);
+        
+            if (e.target.classList.contains('table')) {
+                if (draggedElement.classList.contains('clone123')) {
+                    e.target.appendChild(draggedElement);
+                } else {
+                    e.target.appendChild(clone1);
+                }
+            } else {
+                document.getElementById('table1').appendChild(draggedElement);
+            }
+        }
+            
+
+        document.getElementById('add-draggable').addEventListener('click', () => {  // создание кастомного блока 
+            let newDiv = document.createElement('div');
+            newDiv.id = 'draggable' + (document.querySelectorAll('.draggable').length + 1);
+            newDiv.classList.add('draggable');
+            newDiv.draggable = true;
+            newDiv.addEventListener('dragstart', handleDragStart);
+            document.getElementById('table1').appendChild(newDiv);
+            var value1 = document.querySelector('#input1').value;
+            var value2 = document.querySelector('#input2').value;           
+            let textutu = document.createElement('span');
+            textutu.id = 'textutu1';
+            textutu.innerHTML = value1 +  '<br>' + value2;
+            textutu.style.color = 'white';
+            newDiv.appendChild(textutu);
+
+        });
+
+        Array.from(document.querySelectorAll('.table')).forEach(table => { // выполнения механик перетаскивания и отпускания
+            table.addEventListener('dragover', handleDragOver);
+            table.addEventListener('drop', handleDrop);
+        });
+
+            document.getElementById('vibor').addEventListener('click', function(){ //парсинг и добавление предметов из текста, хочу сделать так, чтобы избавиться от текстовых файлов и заменить их выпадающим списком
+                let file = document.getElementById('file').files[0];
+                var reader = new FileReader();
+                reader.onload = function(){
+                    var text_part = reader.result;
+                    const abcd = text_part.split('\n');
+                    var res=[]
+                    for(var i=0; i<abcd.length; i++){
+                        var x = abcd[i].split(' ' )
+                        res.push(x)
+                    }
+                    for(var i=0; i<res.length-1; i++){
+                        let newDiv = document.createElement('div');
+                        newDiv.id = 'draggable' + (document.querySelectorAll('.draggable').length + 1);
+                        newDiv.classList.add('draggable');
+                        newDiv.draggable = true;
+                        newDiv.addEventListener('dragstart', handleDragStart);
+                        document.getElementById('table1').appendChild(newDiv);       
+                        let textutu = document.createElement('span');
+                        textutu.id = 'textutu1';
+                        textutu.innerHTML = res[i][0] +  '\n' + res[i][1] + '\n' + res[i][2];           
+                        textutu.style.color = 'white';
+                        newDiv.appendChild(textutu);
+
+                }}
+                
+                reader.readAsText(file);
+                })
+    </script>
+</body>
+</html>
